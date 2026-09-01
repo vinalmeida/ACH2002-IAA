@@ -7,5 +7,5 @@ Professores:
 - Fábio Nakano (Aula)
 - Luciano A. Digianpietri (Material Complementar)
 
-Acess: 
+Acess: https://vinalmeida.github.io/ACH2002-IAA/
 
