@@ -9,75 +9,72 @@
   /* ---------- Tema claro (padrão) ---------- */
   :root {
     color-scheme: light;
-    --bg: #f6f7f9;
+    --bg: #f5f6f9;
     --surface: #ffffff;
-    --surface-2: #f0f2f5;
-    --text: #171a1f;
+    --surface-2: #f0f2f6;
+    --text: #15181d;
     --muted: #5d6774;
-    --line: #e2e6eb;
+    --line: #e3e7ec;
     --accent: #2a54c8;
     --accent-soft: #e8eeff;
-    --exam: #17784a;
-    --exam-soft: #e6f5ed;
-    --ep: #9a6100;
-    --ep-soft: #fdf1de;
-    --warn: #c23b34;
-    --warn-soft: #fdeceb;
-    --pdf: #c23b34;
-    --code: #2a54c8;
-    --exe: #7040b8;
-    --video: #b02a5b;
-    --radius: 12px;
-    --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 8px 24px -16px rgba(16, 24, 40, .25);
+
+    --c-blue: #2a54c8;
+    --c-violet: #7040b8;
+    --c-teal: #0d7480;
+    --c-rose: #b02a5b;
+    --c-amber: #98600b;
+    --c-green: #17784a;
+    --c-red: #c23b34;
+
+    --radius: 11px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 6px 18px -14px rgba(16, 24, 40, .3);
   }
 
   /* ---------- Tema escuro ---------- */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --bg: #0e1116;
-      --surface: #161b22;
-      --surface-2: #1d232c;
+      --bg: #0d1015;
+      --surface: #151a21;
+      --surface-2: #1c222b;
       --text: #e5e9ef;
-      --muted: #97a1b0;
-      --line: #262d37;
+      --muted: #98a2b1;
+      --line: #262d38;
       --accent: #7ea2ff;
-      --accent-soft: #1a2440;
-      --exam: #59d29a;
-      --exam-soft: #142a21;
-      --ep: #e6b055;
-      --ep-soft: #2b2417;
-      --warn: #f2837a;
-      --warn-soft: #2c1c1b;
-      --pdf: #f2837a;
-      --code: #7ea2ff;
-      --exe: #b98bf0;
-      --video: #f07aa6;
-      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+      --accent-soft: #182440;
+
+      --c-blue: #7ea2ff;
+      --c-violet: #bb8cf2;
+      --c-teal: #45c8d6;
+      --c-rose: #f07aa6;
+      --c-amber: #e9b155;
+      --c-green: #55d69b;
+      --c-red: #f2837a;
+
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -14px rgba(0, 0, 0, .9);
     }
   }
 
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #0e1116;
-    --surface: #161b22;
-    --surface-2: #1d232c;
+    --bg: #0d1015;
+    --surface: #151a21;
+    --surface-2: #1c222b;
     --text: #e5e9ef;
-    --muted: #97a1b0;
-    --line: #262d37;
+    --muted: #98a2b1;
+    --line: #262d38;
     --accent: #7ea2ff;
-    --accent-soft: #1a2440;
-    --exam: #59d29a;
-    --exam-soft: #142a21;
-    --ep: #e6b055;
-    --ep-soft: #2b2417;
-    --warn: #f2837a;
-    --warn-soft: #2c1c1b;
-    --pdf: #f2837a;
-    --code: #7ea2ff;
-    --exe: #b98bf0;
-    --video: #f07aa6;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    --accent-soft: #182440;
+
+    --c-blue: #7ea2ff;
+    --c-violet: #bb8cf2;
+    --c-teal: #45c8d6;
+    --c-rose: #f07aa6;
+    --c-amber: #e9b155;
+    --c-green: #55d69b;
+    --c-red: #f2837a;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -14px rgba(0, 0, 0, .9);
   }
 
   * { box-sizing: border-box; }
@@ -89,8 +86,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -98,85 +95,86 @@
   a:hover { text-decoration: underline; }
 
   .page {
-    max-width: 880px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px 80px;
+    padding: 0 20px 56px;
   }
 
-  /* ---------- Header ---------- */
+  /* ---------- Cabeçalho ---------- */
 
   header.hero {
+    position: relative;
     border-bottom: 1px solid var(--line);
-    background: var(--surface);
-    margin-bottom: 36px;
+    background:
+      radial-gradient(120% 130% at 8% 0%, var(--accent-soft) 0%, transparent 62%),
+      var(--surface);
+    margin-bottom: 26px;
+  }
+
+  header.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--c-blue) 0%, var(--c-violet) 22%, var(--c-teal) 44%,
+      var(--c-rose) 66%, var(--c-amber) 84%, var(--c-green) 100%);
   }
 
   .hero-inner {
-    position: relative;
-    max-width: 880px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 44px 20px 34px;
+    padding: 20px 20px 26px;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .kicker {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .09em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-soft);
     padding: 5px 11px;
     border-radius: 999px;
-    margin-bottom: 18px;
   }
 
   h1 {
-    font-size: clamp(27px, 5vw, 39px);
-    line-height: 1.15;
-    letter-spacing: -.02em;
-    margin: 0 0 10px;
+    font-size: clamp(26px, 4.6vw, 38px);
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    margin: 0 0 8px;
     font-weight: 700;
-    max-width: 15ch;
   }
+
+  h1 .code {
+    background: linear-gradient(92deg, var(--c-blue), var(--c-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h1 .dash { color: var(--muted); font-weight: 400; }
 
   .subtitle {
-    font-size: 17px;
+    font-size: 15px;
     color: var(--muted);
-    margin: 0 0 24px;
+    margin: 0;
   }
-
-  .people { display: flex; flex-wrap: wrap; gap: 10px; }
-
-  .person {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    padding: 9px 14px;
-    background: var(--surface-2);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    font-size: 14px;
-  }
-
-  .person .role {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  .person .name { font-weight: 600; }
 
   /* ---------- Botão de tema ---------- */
 
   .theme-toggle {
-    position: absolute;
-    top: 26px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    flex: none;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,7 +182,7 @@
     background: var(--surface-2);
     color: var(--muted);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 9px;
     cursor: pointer;
     transition: color .15s, border-color .15s, background .15s;
   }
@@ -195,14 +193,10 @@
     background: var(--accent-soft);
   }
 
-  .theme-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+  .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  .theme-toggle svg { width: 19px; height: 19px; display: block; }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; }
 
-  /* ícone padrão (claro): mostra lua = "ir para o escuro" */
   .theme-toggle .icon-sun { display: none; }
   .theme-toggle .icon-moon { display: block; }
 
@@ -216,48 +210,81 @@
   :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
   :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
-  /* ---------- Nav ---------- */
+  /* ---------- Navegação ---------- */
 
   nav.toc {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 44px;
+    gap: 6px;
+    margin-bottom: 26px;
   }
 
   nav.toc a {
-    font-size: 14px;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--muted);
-    padding: 7px 14px;
+    padding: 5px 12px 5px 10px;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: var(--surface);
-    transition: color .15s, border-color .15s;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+
+  nav.toc a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sec);
   }
 
   nav.toc a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
+    color: var(--sec);
+    border-color: color-mix(in srgb, var(--sec) 55%, transparent);
+    background: color-mix(in srgb, var(--sec) 9%, var(--surface));
     text-decoration: none;
   }
 
-  /* ---------- Blocos ---------- */
+  /* ---------- Seções ---------- */
 
-  section { margin-bottom: 44px; scroll-margin-top: 20px; }
+  section { margin-bottom: 28px; scroll-margin-top: 16px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    padding-bottom: 7px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid color-mix(in srgb, var(--sec) 28%, transparent);
+  }
 
   h2 {
-    font-size: 20px;
-    letter-spacing: -.01em;
-    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 17px;
+    letter-spacing: -.015em;
+    margin: 0;
     font-weight: 700;
+    color: var(--sec);
   }
 
-  .section-note {
-    color: var(--muted);
-    font-size: 14px;
-    margin: 0 0 20px;
+  h2::before {
+    content: "";
+    width: 4px;
+    height: 15px;
+    border-radius: 2px;
+    background: var(--sec);
   }
+
+  .sec-note { color: var(--muted); font-size: 13px; }
+
+  /* ---------- Itens ---------- */
 
   ul.stack {
     list-style: none;
@@ -265,142 +292,153 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
   }
 
   li.item {
     display: grid;
-    grid-template-columns: 46px 1fr;
-    gap: 16px;
+    grid-template-columns: 40px 1fr;
+    gap: 13px;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 15px 17px;
+    padding: 11px 14px;
     box-shadow: var(--shadow);
+    transition: border-color .15s, transform .15s;
+  }
+
+  li.item:hover {
+    border-color: color-mix(in srgb, var(--sec) 45%, var(--line));
+    transform: translateX(2px);
   }
 
   .marker {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
-    background: var(--surface-2);
-    color: var(--muted);
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
+    height: 26px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
     letter-spacing: .02em;
+    color: var(--sec);
+    background: color-mix(in srgb, var(--sec) 13%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sec) 25%, transparent);
   }
 
   .topic {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.4;
   }
 
-  .topic .aside { color: var(--muted); font-weight: 400; font-size: 14px; }
+  .topic .aside { color: var(--muted); font-weight: 400; font-size: 13.5px; }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 9px;
-  }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
 
   .tag {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: .05em;
+    letter-spacing: .045em;
     text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 6px;
-    border: 1px solid currentColor;
-    line-height: 1.5;
+    padding: 2px 7px;
+    border-radius: 5px;
+    line-height: 1.55;
     white-space: nowrap;
-    opacity: .85;
-    transition: opacity .15s;
+    background: color-mix(in srgb, currentColor 13%, transparent);
+    border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+    transition: background .15s;
   }
 
-  .tag:hover { opacity: 1; text-decoration: none; }
+  .tag:hover {
+    background: color-mix(in srgb, currentColor 24%, transparent);
+    text-decoration: none;
+  }
 
-  .tag.pdf { color: var(--pdf); }
-  .tag.code { color: var(--code); }
-  .tag.exe { color: var(--exe); }
-  .tag.video { color: var(--video); }
+  .tag.pdf { color: var(--c-red); }
+  .tag.code { color: var(--c-blue); }
+  .tag.exe { color: var(--c-violet); }
+  .tag.video { color: var(--c-rose); }
 
   ul.notes {
     list-style: none;
-    margin: 12px 0 0;
-    padding: 0 0 0 14px;
-    border-left: 2px solid var(--line);
+    margin: 9px 0 0;
+    padding: 0 0 0 12px;
+    border-left: 2px solid color-mix(in srgb, var(--sec) 25%, transparent);
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
+    gap: 6px;
+    font-size: 13.5px;
     color: var(--muted);
   }
 
-  ul.notes .tag { margin-left: 4px; vertical-align: 1px; }
+  ul.notes .tag { margin-left: 3px; vertical-align: 1px; }
 
-  /* Variantes */
+  /* Destaques */
 
-  li.item.is-exam { border-color: var(--exam); background: var(--exam-soft); }
-  li.item.is-exam .marker { background: var(--exam); color: #fff; }
-  li.item.is-exam .topic { color: var(--exam); }
-  li.item.is-exam .notes { border-left-color: color-mix(in srgb, var(--exam) 35%, transparent); }
+  li.item.filled {
+    background: color-mix(in srgb, var(--sec) 7%, var(--surface));
+    border-color: color-mix(in srgb, var(--sec) 32%, transparent);
+  }
 
-  li.item.is-ep { border-color: var(--ep); background: var(--ep-soft); }
-  li.item.is-ep .marker { background: var(--ep); color: #fff; }
-  li.item.is-ep .topic { color: var(--ep); }
+  li.item.filled .marker { background: var(--sec); color: var(--surface); border-color: transparent; }
+  li.item.filled .topic { color: var(--sec); }
+  li.item.filled .topic a { color: inherit; }
 
-  /* ---------- Cards de informação ---------- */
+  ul.stack.two-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  /* ---------- Cards ---------- */
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
   }
 
   .card {
     background: var(--surface);
     border: 1px solid var(--line);
+    border-left: 3px solid var(--sec);
     border-radius: var(--radius);
-    padding: 18px 20px;
+    padding: 13px 16px;
     box-shadow: var(--shadow);
   }
 
   .card h3 {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .09em;
-    color: var(--muted);
-    margin: 0 0 10px;
+    color: var(--sec);
+    margin: 0 0 7px;
   }
 
-  .card p { margin: 0 0 8px; font-size: 15px; }
+  .card p { margin: 0 0 6px; font-size: 14px; }
   .card p:last-child { margin-bottom: 0; }
   .card .highlight { font-weight: 600; }
 
   .callout {
-    border-left: 3px solid var(--warn);
-    background: var(--warn-soft);
-    color: var(--warn);
-    padding: 14px 18px;
+    border-left: 3px solid var(--c-red);
+    background: color-mix(in srgb, var(--c-red) 9%, var(--surface));
+    color: var(--c-red);
+    padding: 11px 16px;
     border-radius: 0 var(--radius) var(--radius) 0;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   /* ---------- Links úteis ---------- */
 
   ul.links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -410,44 +448,51 @@
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 16px 18px;
+    padding: 13px 16px;
     box-shadow: var(--shadow);
+    transition: border-color .15s;
   }
 
-  .link-title { font-weight: 600; font-size: 15px; }
-  .link-desc { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  ul.links li:hover { border-color: color-mix(in srgb, var(--sec) 45%, var(--line)); }
 
-  .compilers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .link-title { font-weight: 600; font-size: 14.5px; color: var(--sec); }
+  .link-desc { color: var(--muted); font-size: 13px; margin-top: 3px; }
+
+  .compilers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 
   .compilers a {
-    font-size: 13px;
-    font-weight: 500;
-    padding: 5px 11px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--surface-2);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border: 1px solid color-mix(in srgb, var(--sec) 25%, transparent);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--sec) 10%, transparent);
+    color: var(--sec);
   }
 
-  .compilers a:hover { border-color: var(--accent); text-decoration: none; }
+  .compilers a:hover {
+    background: color-mix(in srgb, var(--sec) 20%, transparent);
+    text-decoration: none;
+  }
 
   /* ---------- Rodapé ---------- */
 
   footer {
     border-top: 1px solid var(--line);
-    padding-top: 22px;
+    padding-top: 16px;
     color: var(--muted);
-    font-size: 13.5px;
+    font-size: 13px;
   }
 
-  footer p { margin: 0 0 6px; }
+  footer p { margin: 0 0 4px; }
 
   /* ---------- Mobile ---------- */
 
   @media (max-width: 560px) {
-    .hero-inner { padding-top: 72px; }
-    .theme-toggle { top: 20px; }
-    li.item { grid-template-columns: 38px 1fr; gap: 12px; padding: 14px; }
-    .marker { height: 26px; font-size: 12px; }
+    li.item { grid-template-columns: 36px 1fr; gap: 11px; padding: 10px 12px; }
+    .marker { height: 24px; font-size: 11px; }
+    li.item:hover { transform: none; }
+    .sec-note { display: none; }
   }
 </style>
 <script>
@@ -465,48 +510,42 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
-      </svg>
-    </button>
-
-    <span class="kicker">EACH · USP — Sistemas de Informação</span>
-    <h1>ACH2002 — Introdução à Análise de Algoritmos</h1>
-    <p class="subtitle">Índice de materiais: slides, códigos em C, vídeos e programas de apoio.</p>
-    <div class="people">
-      <div class="person">
-        <span class="role">Aula</span>
-        <span class="name">Prof. Dr. Fábio Nakano</span>
-      </div>
-      <div class="person">
-        <span class="role">Material complementar</span>
-        <span class="name">Prof. Dr. Luciano Antonio Digiampietri</span>
-      </div>
+    <div class="hero-top">
+      <span class="kicker">EACH · USP — Sistemas de Informação</span>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro" title="Alternar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+      </button>
     </div>
+
+    <h1><span class="code">ACH2002</span> <span class="dash">—</span> Introdução à Análise de Algoritmos</h1>
+    <p class="subtitle">Índice de materiais: slides, códigos em C, vídeos e programas de apoio.</p>
   </div>
 </header>
 
 <div class="page">
 
   <nav class="toc">
-    <a href="#fundamentos">Fundamentos</a>
-    <a href="#inducao">Indução e recorrência</a>
-    <a href="#tecnicas">Técnicas de projeto</a>
-    <a href="#ordenacao">Ordenação</a>
-    <a href="#eps">EPs</a>
-    <a href="#provas">Provas</a>
-    <a href="#informacoes">Informações</a>
-    <a href="#extras">Links úteis</a>
+    <a href="#fundamentos" style="--sec: var(--c-blue)">Fundamentos</a>
+    <a href="#inducao" style="--sec: var(--c-violet)">Indução e recorrência</a>
+    <a href="#tecnicas" style="--sec: var(--c-teal)">Técnicas de projeto</a>
+    <a href="#ordenacao" style="--sec: var(--c-rose)">Ordenação</a>
+    <a href="#eps" style="--sec: var(--c-amber)">EPs</a>
+    <a href="#provas" style="--sec: var(--c-green)">Provas</a>
+    <a href="#informacoes" style="--sec: var(--c-blue)">Informações</a>
+    <a href="#extras" style="--sec: var(--c-teal)">Links úteis</a>
   </nav>
 
-  <section id="fundamentos">
-    <h2>Fundamentos</h2>
-    <p class="section-note">Custo, complexidade e análise assintótica.</p>
+  <section id="fundamentos" style="--sec: var(--c-blue)">
+    <div class="sec-head">
+      <h2>Fundamentos</h2>
+      <span class="sec-note">Custo, complexidade e análise assintótica</span>
+    </div>
     <ul class="stack">
 
       <li class="item">
@@ -538,7 +577,7 @@
             <a class="tag pdf" href="https://www.each.usp.br/digiampietri/ACH2002/aula03.pdf">PDF</a>
           </div>
           <ul class="notes">
-            <li><a href="https://www.each.usp.br/digiampietri/ACH2002/ConceitosBasicos.pdf">Equações e operações matemáticas</a> necessárias para algumas análises realizadas na disciplina.</li>
+            <li><a href="https://www.each.usp.br/digiampietri/ACH2002/ConceitosBasicos.pdf">Equações e operações matemáticas</a> necessárias para algumas análises da disciplina.</li>
           </ul>
         </div>
       </li>
@@ -561,9 +600,11 @@
     </ul>
   </section>
 
-  <section id="inducao">
-    <h2>Indução e recorrência</h2>
-    <p class="section-note">Provas por indução, recursão e resolução de equações de recorrência.</p>
+  <section id="inducao" style="--sec: var(--c-violet)">
+    <div class="sec-head">
+      <h2>Indução e recorrência</h2>
+      <span class="sec-note">Provas por indução, recursão e equações de recorrência</span>
+    </div>
     <ul class="stack">
 
       <li class="item">
@@ -616,9 +657,11 @@
     </ul>
   </section>
 
-  <section id="tecnicas">
-    <h2>Técnicas de projeto de algoritmos</h2>
-    <p class="section-note">Divisão e conquista, backtracking, algoritmos gulosos e programação dinâmica.</p>
+  <section id="tecnicas" style="--sec: var(--c-teal)">
+    <div class="sec-head">
+      <h2>Técnicas de projeto</h2>
+      <span class="sec-note">Divisão e conquista, backtracking, gulosos e programação dinâmica</span>
+    </div>
     <ul class="stack">
 
       <li class="item">
@@ -712,9 +755,11 @@
     </ul>
   </section>
 
-  <section id="ordenacao">
-    <h2>Ordenação e cota inferior</h2>
-    <p class="section-note">Algoritmos de ordenação por comparação e por contagem.</p>
+  <section id="ordenacao" style="--sec: var(--c-rose)">
+    <div class="sec-head">
+      <h2>Ordenação e cota inferior</h2>
+      <span class="sec-note">Ordenação por comparação e por contagem</span>
+    </div>
     <ul class="stack">
 
       <li class="item">
@@ -797,19 +842,21 @@
     </ul>
   </section>
 
-  <section id="eps">
-    <h2>Exercícios-programa</h2>
-    <p class="section-note">Enunciados e materiais de apoio dos EPs.</p>
-    <ul class="stack">
+  <section id="eps" style="--sec: var(--c-amber)">
+    <div class="sec-head">
+      <h2>Exercícios-programa</h2>
+      <span class="sec-note">Enunciados e materiais de apoio</span>
+    </div>
+    <ul class="stack two-col">
 
-      <li class="item is-ep">
+      <li class="item filled">
         <span class="marker">EP1</span>
         <div>
           <p class="topic"><a href="https://www.each.usp.br/digiampietri/ACH2002/ep1/">Exercício-Programa 1</a></p>
         </div>
       </li>
 
-      <li class="item is-ep">
+      <li class="item filled">
         <span class="marker">EP2</span>
         <div>
           <p class="topic"><a href="https://www.each.usp.br/digiampietri/ACH2002/ep2/">Exercício-Programa 2</a></p>
@@ -819,12 +866,14 @@
     </ul>
   </section>
 
-  <section id="provas">
-    <h2>Provas</h2>
-    <p class="section-note">Avaliações da disciplina e material de estudo disponível.</p>
+  <section id="provas" style="--sec: var(--c-green)">
+    <div class="sec-head">
+      <h2>Provas</h2>
+      <span class="sec-note">Avaliações e material de estudo</span>
+    </div>
     <ul class="stack">
 
-      <li class="item is-exam">
+      <li class="item filled">
         <span class="marker">P1</span>
         <div>
           <p class="topic">Prova 1</p>
@@ -836,38 +885,32 @@
 
       <li class="item">
         <span class="marker">REV</span>
-        <div>
-          <p class="topic">Revisão para a prova</p>
-        </div>
+        <div><p class="topic">Revisão para a prova</p></div>
       </li>
 
-      <li class="item is-exam">
+      <li class="item filled">
         <span class="marker">P2</span>
-        <div>
-          <p class="topic">Prova 2</p>
-        </div>
+        <div><p class="topic">Prova 2</p></div>
       </li>
 
-      <li class="item is-exam">
+      <li class="item filled">
         <span class="marker">PS</span>
-        <div>
-          <p class="topic">Prova Substitutiva</p>
-        </div>
+        <div><p class="topic">Prova Substitutiva</p></div>
       </li>
 
-      <li class="item is-exam">
+      <li class="item filled">
         <span class="marker">PR</span>
-        <div>
-          <p class="topic">Prova de Recuperação</p>
-        </div>
+        <div><p class="topic">Prova de Recuperação</p></div>
       </li>
 
     </ul>
   </section>
 
-  <section id="informacoes">
-    <h2>Informações gerais</h2>
-    <p class="section-note">Regras de atendimento, bibliografia e canais oficiais da disciplina.</p>
+  <section id="informacoes" style="--sec: var(--c-blue)">
+    <div class="sec-head">
+      <h2>Informações gerais</h2>
+      <span class="sec-note">Atendimento, bibliografia e canais oficiais</span>
+    </div>
 
     <div class="callout">
       Nos sete dias anteriores às datas de entrega dos EPs não serão esclarecidas dúvidas sobre os EPs.
@@ -876,23 +919,23 @@
 
     <div class="cards">
 
-      <div class="card">
+      <div class="card" style="--sec: var(--c-violet)">
         <h3>Livro texto principal</h3>
-        <p>CORMEN, T. H.; LEISERSON, C. E.; RIVEST, R. L.; STEIN, C. <span class="highlight">“Algoritmos — Teoria e Prática”</span>, GEN LTC, 3ª edição, 2012.</p>
+        <p>CORMEN, LEISERSON, RIVEST &amp; STEIN. <span class="highlight">“Algoritmos — Teoria e Prática”</span>, GEN LTC, 3ª ed., 2012.</p>
       </div>
 
-      <div class="card">
-        <h3>Plantão de dúvidas semanal</h3>
-        <p><span class="highlight">Quintas-feiras</span> (exceto nos feriados), das <span class="highlight">17h30 às 18h30</span>, na sala 110P do A1.</p>
+      <div class="card" style="--sec: var(--c-teal)">
+        <h3>Plantão de dúvidas</h3>
+        <p><span class="highlight">Quintas-feiras</span> (exceto feriados), das <span class="highlight">17h30 às 18h30</span>, sala 110P do A1.</p>
       </div>
 
-      <div class="card">
+      <div class="card" style="--sec: var(--c-amber)">
         <h3>Monitoria</h3>
-        <p>A disciplina conta com um monitor, <span class="highlight">Felipe Akira Dias</span>, que esclarece dúvidas por e-mail além de auxiliar no dojô.</p>
+        <p><span class="highlight">Felipe Akira Dias</span> — dúvidas por e-mail e apoio no dojô.</p>
         <p><a href="mailto:felipeakiradias@usp.br">felipeakiradias@usp.br</a></p>
       </div>
 
-      <div class="card">
+      <div class="card" style="--sec: var(--c-blue)">
         <h3>Sistema oficial</h3>
         <p><a href="http://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=ACH2002&amp;nomdis=">Site da disciplina no Júpiter Web</a></p>
       </div>
@@ -900,23 +943,25 @@
     </div>
   </section>
 
-  <section id="extras">
-    <h2>Conteúdos extras e links úteis</h2>
-    <p class="section-note">Ferramentas de apoio para escrever, compilar e visualizar seus programas.</p>
+  <section id="extras" style="--sec: var(--c-teal)">
+    <div class="sec-head">
+      <h2>Links úteis</h2>
+      <span class="sec-note">Ferramentas para escrever, compilar e visualizar código</span>
+    </div>
 
     <ul class="links">
 
-      <li>
+      <li style="--sec: var(--c-violet)">
         <a class="link-title" href="http://pythontutor.com/visualize.html#mode=edit">Python Tutor</a>
-        <div class="link-desc">Visualização gráfica do uso de memória durante a execução dos seus programas, em várias linguagens — incluindo C, Java e Python.</div>
+        <div class="link-desc">Visualização gráfica do uso de memória durante a execução dos programas — C, Java, Python e outras.</div>
       </li>
 
-      <li>
+      <li style="--sec: var(--c-rose)">
         <a class="link-title" href="http://www.each.usp.br/digiampietri/ACH2001/Tutorial_ComoInstalarGCCNoWindows10.pdf">Instalação do GCC no Windows</a>
-        <div class="link-desc">Tutorial passo a passo em PDF para configurar o compilador na sua máquina.</div>
+        <div class="link-desc">Tutorial em PDF para configurar o compilador na sua máquina.</div>
       </li>
 
-      <li>
+      <li style="--sec: var(--c-teal)">
         <span class="link-title">Compiladores online</span>
         <div class="link-desc">Para testar código rapidamente, sem instalar nada.</div>
         <div class="compilers">
@@ -930,8 +975,8 @@
   </section>
 
   <footer>
-    <p>Repositório de material de auxílio à disciplina ACH2002 — Introdução à Análise de Algoritmos, EACH-USP.</p>
-    <p>Conteúdo e materiais originais: <a href="https://www.each.usp.br/digiampietri/ACH2002/">página da disciplina</a> do Prof. Dr. Luciano Antonio Digiampietri.</p>
+    <p>Material de auxílio à disciplina ACH2002 — Introdução à Análise de Algoritmos, EACH-USP.</p>
+    <p>Conteúdo original: <a href="https://www.each.usp.br/digiampietri/ACH2002/">página da disciplina</a> do Prof. Dr. Luciano Antonio Digiampietri.</p>
   </footer>
 
 </div>
