@@ -27,7 +27,6 @@
     --c-red: #c23b34;
 
     --radius: 11px;
-    --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 6px 18px -14px rgba(16, 24, 40, .3);
   }
 
   /* ---------- Tema escuro ---------- */
@@ -51,7 +50,6 @@
       --c-green: #55d69b;
       --c-red: #f2837a;
 
-      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -14px rgba(0, 0, 0, .9);
     }
   }
 
@@ -74,7 +72,6 @@
     --c-green: #55d69b;
     --c-red: #f2837a;
 
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px -14px rgba(0, 0, 0, .9);
   }
 
   * { box-sizing: border-box; }
@@ -168,6 +165,59 @@
     color: var(--muted);
     margin: 0;
   }
+
+  /* ---------- Botões do cabeçalho ---------- */
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, var(--c-blue) 30%, transparent);
+    background: color-mix(in srgb, var(--c-blue) 10%, transparent);
+    color: var(--c-blue);
+    transition: background .15s, border-color .15s;
+  }
+
+  .hero-btn:hover {
+    background: color-mix(in srgb, var(--c-blue) 20%, transparent);
+    border-color: color-mix(in srgb, var(--c-blue) 55%, transparent);
+    text-decoration: none;
+  }
+
+  .hero-btn svg { width: 14px; height: 14px; flex: none; }
+
+  .hero-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 7px 13px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+
+  .hero-credit .label {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .hero-credit a { font-weight: 600; color: var(--c-violet); }
 
   /* ---------- Botão de tema ---------- */
 
@@ -303,13 +353,11 @@
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 11px 14px;
-    box-shadow: var(--shadow);
-    transition: border-color .15s, transform .15s;
+    transition: border-color .15s;
   }
 
   li.item:hover {
     border-color: color-mix(in srgb, var(--sec) 45%, var(--line));
-    transform: translateX(2px);
   }
 
   .marker {
@@ -406,7 +454,6 @@
     border-left: 3px solid var(--sec);
     border-radius: var(--radius);
     padding: 13px 16px;
-    box-shadow: var(--shadow);
   }
 
   .card h3 {
@@ -449,7 +496,6 @@
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 13px 16px;
-    box-shadow: var(--shadow);
     transition: border-color .15s;
   }
 
@@ -491,7 +537,6 @@
   @media (max-width: 560px) {
     li.item { grid-template-columns: 36px 1fr; gap: 11px; padding: 10px 12px; }
     .marker { height: 24px; font-size: 11px; }
-    li.item:hover { transform: none; }
     .sec-note { display: none; }
   }
 </style>
@@ -525,6 +570,20 @@
 
     <h1><span class="code">ACH2002</span> <span class="dash">—</span> Introdução à Análise de Algoritmos</h1>
     <p class="subtitle">Índice de materiais: slides, códigos em C, vídeos e programas de apoio.</p>
+
+    <div class="hero-actions">
+      <a class="hero-btn" href="http://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=ACH2002&amp;nomdis=">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <path d="M15 3h6v6M10 14 21 3"></path>
+        </svg>
+        Júpiter Web
+      </a>
+      <span class="hero-credit">
+        <span class="label">Créditos</span>
+        <a href="https://www.each.usp.br/digiampietri/">Prof. Luciano A. Digiampietri</a>
+      </span>
+    </div>
   </div>
 </header>
 
@@ -935,11 +994,6 @@
         <p><a href="mailto:felipeakiradias@usp.br">felipeakiradias@usp.br</a></p>
       </div>
 
-      <div class="card" style="--sec: var(--c-blue)">
-        <h3>Sistema oficial</h3>
-        <p><a href="http://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=ACH2002&amp;nomdis=">Site da disciplina no Júpiter Web</a></p>
-      </div>
-
     </div>
   </section>
 
@@ -976,7 +1030,7 @@
 
   <footer>
     <p>Material de auxílio à disciplina ACH2002 — Introdução à Análise de Algoritmos, EACH-USP.</p>
-    <p>Conteúdo original: <a href="https://www.each.usp.br/digiampietri/ACH2002/">página da disciplina</a> do Prof. Dr. Luciano Antonio Digiampietri.</p>
+    <p>Slides, códigos e vídeos hospedados na <a href="https://www.each.usp.br/digiampietri/ACH2002/">página original da disciplina</a>.</p>
   </footer>
 
 </div>
