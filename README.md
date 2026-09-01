@@ -1,6 +1,6 @@
 # Introduction-to-Analisys-of-Algorithms
 
-Repositório criado para material de auxílio à disciplina ACH2002 - Introdução à Analise de Algoritmos
+Repositório criado para servir de material-auxílio à disciplina ACH2002 - Introdução à Analise de Algoritmos
 
 Professores:
 
